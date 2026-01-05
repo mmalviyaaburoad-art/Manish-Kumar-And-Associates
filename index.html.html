@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manish Kumar and Associates - Taxation & Labour Law Consultant</title>
+    <style>
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #32b8c6;
+            --accent-color: #e67e50;
+            --dark-bg: #0f3a47;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #ffffff;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .btn-call {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-call:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(26, 95, 122, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(50, 184, 198, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid white;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: var(--light-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            font-size: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 80px 20px;
+            background: var(--light-bg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .expertise-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            box-shadow: 0 5px 15px rgba(50, 184, 198, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .expertise-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .expertise-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+        }
+
+        .contact-form {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(50, 184, 198, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(26, 95, 122, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 20px;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 200px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
+        }
+
+        /* Smooth Transitions */
+        a, button {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">⚖️</div>
+                <span>MKA Legal</span>
+            </a>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:+919680960985" class="btn-call">📞 +91 9680 960 985</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Expert Legal & Taxation Solutions</h1>
+            <p>Specialized in Taxation, Labour Law Compliance, and Professional Consultation for Businesses across Rajasthan</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">Schedule Consultation</button>
+                <button class="btn-secondary">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Professional Services</h2>
+        <p class="section-subtitle">Comprehensive solutions for your business needs</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Taxation Consulting</h3>
+                <p>Expert guidance on Income Tax, GST compliance, and tax optimization strategies for individuals and businesses.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Labour Law Compliance</h3>
+                <p>Comprehensive support with EPFO, ESIC, employee contracts, statutory compliance, and HR documentation.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>GST Compliance</h3>
+                <p>Complete GST registration, return filing, audit support, and compliance management for businesses of all sizes.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>Business Compliance</h3>
+                <p>Documentation, regulatory filings, statutory compliance, and ongoing advisory services for smooth operations.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📑</div>
+                <h3>Contract & Documentation</h3>
+                <p>Legal document drafting, contract review, employment agreements, and compliance documentation support.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Audit & Verification</h3>
+                <p>Professional audit services, financial verification, statutory compliance checks, and detailed reporting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Why Choose Us?</h2>
+                <p>With over a decade of experience in taxation and labour law consulting, we've successfully guided hundreds of businesses through complex compliance requirements and strategic planning.</p>
+                <p>Our team comprises certified professionals dedicated to delivering personalized solutions that align with your business goals while ensuring complete regulatory compliance.</p>
+                <p>We pride ourselves on maintaining the highest standards of professional excellence and client confidentiality.</p>
+                <button class="btn-primary" style="margin-top: 1.5rem;">Get Started Today</button>
+            </div>
+            <div class="about-image">
+                📈
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise" id="expertise">
+        <h2 class="section-title">Areas of Expertise</h2>
+        <p class="section-subtitle">Specialized knowledge across key domains</p>
+        
+        <div class="expertise-grid">
+            <div class="expertise-item">
+                <h4>Income Tax</h4>
+                <p>Filing, Planning & Optimization</p>
+            </div>
+            <div class="expertise-item">
+                <h4>GST Compliance</h4>
+                <p>Registration & Return Filing</p>
+            </div>
+            <div class="expertise-item">
+                <h4>EPFO/ESIC</h4>
+                <p>Employee Benefits Management</p>
+            </div>
+            <div class="expertise-item">
+                <h4>Labour Compliance</h4>
+                <p>Statutory Requirements</p>
+            </div>
+            <div class="expertise-item">
+                <h4>Payroll Management</h4>
+                <p>Processing & Compliance</p>
+            </div>
+            <div class="expertise-item">
+                <h4>Auditing</h4>
+                <p>Financial & Statutory Audits</p>
+            </div>
+            <div class="expertise-item">
+                <h4>Business Setup</h4>
+                <p>Registration & Documentation</p>
+            </div>
+            <div class="expertise-item">
+                <h4>Advisory Services</h4>
+                <p>Strategic Consultation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3>Office Location</h3>
+                        <p>Mount Abu Road, Talheti, Aburoad-307510<br>Dist. Sirohi, Rajasthan, India</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+91 9680 960 985</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>mmalviya.aburoad@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <div>
+                        <h3>Office Hours</h3>
+                        <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 2:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Manish Kumar and Associates is a premier taxation and labour law consulting firm serving businesses across Rajasthan with professional expertise and dedicated support.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#services">Our Services</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#about">About Us</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="#services">Taxation Consulting</a>
+                <a href="#services">Labour Law Compliance</a>
+                <a href="#services">GST Compliance</a>
+                <a href="#services">Business Advisory</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>📍 Mount Abu Road, Talheti<br>Aburoad-307510, Sirohi</p>
+                <p>📞 +91 9680 960 985</p>
+                <p>✉️ mmalviya.aburoad@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Manish Kumar and Associates. All rights reserved. | Professional Taxation & Labour Law Consultation</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            // Display success message
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+        });
+
+        // Button click handlers
+        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-call').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.textContent.includes('Consultation') || this.textContent.includes('Request Call')) {
+                    e.preventDefault();
+                    document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Active navigation highlighting on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200 && window.pageYOffset < sectionTop + sectionHeight - 200) {
+                    navLinks.forEach(link => link.style.color = 'var(--text-dark)');
+                    const activeLink = document.querySelector(`nav a[href="#${section.id}"]`);
+                    if (activeLink) activeLink.style.color = 'var(--secondary-color)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
